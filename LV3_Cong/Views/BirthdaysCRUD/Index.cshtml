@@ -1,0 +1,30 @@
+﻿@model IEnumerable<LV3_Cong.Models.Birthday>
+@{
+    ViewData["Title"] = "HOME";
+}
+<h1>@ViewData["Title"]</h1>
+<p><a asp-action="Create">Add new</a></p>
+<table>
+    <thead>
+        <tr><th>Photo</th><th>FIO</th><th>Date</th><th>TO DO</th></tr>
+    </thead>
+    <tbody>
+        @foreach (var i in Model)
+        {
+            <tr>
+                <td>
+                    @if (!string.IsNullOrEmpty(i.PhotoPath))
+                    {
+                        <img src="@i.PhotoPath" width="50" alt="" />
+                    }
+                </td>
+                <td>@i.FIO</td>
+                <td>@i.Date.ToString("yyyy-MM-dd")</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@i.Id">EDIT</a> |
+                    <a asp-action="Delete" asp-route-id="@i.Id">DELETE</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,17 @@
+﻿@model LV3_Cong.Models.Birthday
+@{
+    ViewData["Title"] = "Удалить день рождения";
+}
+<h1>@ViewData["Title"]</h1>
+<p>Confirm action</p>
+<dl>
+    <dt>FIO</dt>
+    <dd>@Model.FIO</dd>
+    <dt>Date</dt>
+    <dd>@Model.Date.ToString("yyyy-MM-dd")</dd>
+</dl>
+<form asp-action="Delete" asp-route-id="@Model.Id" method="post">
+    @Html.AntiForgeryToken()
+    <button type="submit">DELETE</button>
+    <a asp-action="Index">close</a>
+</form>

@@ -1,0 +1,26 @@
+﻿@model IEnumerable<LV3_Cong.Models.Birthday>
+@{
+    ViewData["Title"] = "NEAREST";
+}
+<h1>@ViewData["Title"]</h1>
+<p><a asp-action="Index">ALL</a></p>
+<table>
+    <thead>
+        <tr><th>Photo</th><th>FIO</th><th>Date</th></tr>
+    </thead>
+    <tbody>
+        @foreach (var i in Model)
+        {
+            <tr>
+                <td>
+                    @if (!string.IsNullOrEmpty(i.PhotoPath))
+                    {
+                        <img src="@i.PhotoPath" width="50" alt="" />
+                    }
+                </td>
+                <td>@i.FIO</td>
+                <td>@i.Date.ToString("yyyy-MM-dd")</td>
+            </tr>
+        }
+    </tbody>
+</table>

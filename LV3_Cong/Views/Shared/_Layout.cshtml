@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"] - Cong.</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <nav>
+        <a asp-controller="BirthdaysCRUD" asp-action="Index">ALL</a> |
+        <a asp-controller="BirthdaysCRUD" asp-action="Upcoming">NEAREST</a> |
+        <a asp-controller="BirthdaysCRUD" asp-action="Create">ADD</a>
+    </nav>
+    <div class="container">
+        @RenderBody()
+    </div>
+    <footer>&copy; @DateTime.Now.Year Cong.</footer>
+    <script src="~/js/site.js"></script>
+    @RenderSection("Scripts", required: false)
+    <script src="/_framework/aspnetcore-browser-refresh.js"></script>
+</body>
+</html>

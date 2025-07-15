@@ -1,0 +1,30 @@
+﻿@model LV3_Cong.Models.Birthday
+@{
+    ViewData["Title"] = "Edit date";
+}
+<h1>@ViewData["Title"]</h1>
+<form asp-action="Edit" method="post" enctype="multipart/form-data">
+    @Html.AntiForgeryToken()
+    <input type="hidden" asp-for="Id" />
+    <div>
+        <label>FIO</label>
+        <input asp-for="FIO" />
+    </div>
+    <div>
+        <label>Date</label>
+        <input asp-for="Date" type="date" />
+    </div>
+    <div>
+        <label>Photo</label>
+        @if (!string.IsNullOrEmpty(Model.PhotoPath))
+        {
+            <img src="@Model.PhotoPath" width="100" alt="" />
+            <br />
+        }
+        <input type="file" name="formFile" accept="image/*" />
+    </div>
+    <button type="submit">Save</button>
+</form>
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}
